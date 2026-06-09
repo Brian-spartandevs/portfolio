@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useLanguage } from '../i18n/LanguageContext';
 import FloatingShapes from './FloatingShapes';
-import heroImg from '../assets/images/developer-hero.png';
+import heroImg from '../assets/images/developer-hero.jpeg';
 import './Hero.css';
 
 const heroShapes = [

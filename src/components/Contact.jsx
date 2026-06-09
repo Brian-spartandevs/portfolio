@@ -13,6 +13,7 @@ function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     project: "",
     message: "",
   });
@@ -57,7 +58,7 @@ function Contact() {
 
       if (response.ok) {
         setSubmitted(true);
-        setFormData({ name: "", email: "", project: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", project: "", message: "" });
         setTimeout(() => setSubmitted(false), 5000);
       } else {
         setSubmitError(true);
@@ -312,6 +313,18 @@ function Contact() {
                   name="email"
                   placeholder={c.formEmailPlaceholder}
                   value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </motion.div>
+              <motion.div className="contact__form-group" variants={itemVariants}>
+                <label htmlFor="contact-phone">{c.formPhone}</label>
+                <input
+                  type="tel"
+                  id="contact-phone"
+                  name="phone"
+                  placeholder={c.formPhonePlaceholder}
+                  value={formData.phone}
                   onChange={handleChange}
                   required
                 />

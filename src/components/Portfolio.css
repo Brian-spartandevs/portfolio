@@ -72,7 +72,7 @@
 
 /* Card */
 .portfolio__card {
-  width: 360px;
+  width: min(360px, 85vw);
   flex-shrink: 0;
   background: linear-gradient(165deg, rgba(26, 26, 26, 0.95) 0%, rgba(15, 15, 15, 1) 100%);
   border-radius: var(--radius-xl);
@@ -81,6 +81,7 @@
   transition: border-color var(--transition-normal);
   position: relative;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .portfolio__card::before {
@@ -146,6 +147,7 @@
   padding: 0.3rem 0.8rem;
   background: rgba(230, 57, 70, 0.15);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(230, 57, 70, 0.25);
   border-radius: 50px;
   font-size: 0.7rem;
@@ -219,5 +221,17 @@
 @media (max-width: 768px) {
   .portfolio__slider-fade {
     width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio__card-preview {
+    min-height: 220px;
+  }
+  .portfolio__slider-wrapper {
+    margin-top: 2rem;
+  }
+  .portfolio__card-info {
+    padding: 1.2rem;
   }
 }

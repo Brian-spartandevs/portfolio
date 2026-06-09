@@ -44,6 +44,7 @@
   transform-style: preserve-3d;
   will-change: transform;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .services__card::after {
@@ -151,5 +152,17 @@
     grid-template-columns: 1fr;
     max-width: 500px;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .services__grid {
+    gap: 1.5rem;
+  }
+  .services__card-image {
+    height: 180px;
+  }
+  .services__card-content {
+    padding: 1.2rem;
   }
 }

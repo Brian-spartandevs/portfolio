@@ -114,3 +114,10 @@
     text-align: center;
   }
 }
+
+@media (max-width: 480px) {
+  .footer__links {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

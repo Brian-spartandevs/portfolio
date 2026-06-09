@@ -155,6 +155,7 @@
   flex-direction: column;
   gap: 1.2rem;
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   position: relative;
   overflow: hidden;
@@ -281,7 +282,18 @@
 }
 
 @media (max-width: 480px) {
+  .contact__wrapper {
+    gap: 2.5rem;
+  }
   .contact__form {
-    padding: 1.5rem;
+    padding: 1.5rem 1rem;
+  }
+  .contact__detail-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  .contact__title {
+    font-size: 1.8rem;
   }
 }
