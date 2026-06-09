@@ -1,0 +1,138 @@
+/* ===== FLOATING 3D SHAPES ===== */
+
+.floating-shapes-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.floating-shape {
+  perspective: 800px;
+  will-change: transform;
+}
+
+/* ── Wireframe Cube ── */
+.shape-cube {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+.shape-cube__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid var(--color-accent);
+  background: rgba(230, 57, 70, 0.02);
+  backface-visibility: visible;
+}
+
+.shape-cube__face--front  { transform: translateZ(var(--half)); }
+.shape-cube__face--back   { transform: rotateY(180deg) translateZ(var(--half)); }
+.shape-cube__face--right  { transform: rotateY(90deg) translateZ(var(--half)); }
+.shape-cube__face--left   { transform: rotateY(-90deg) translateZ(var(--half)); }
+.shape-cube__face--top    { transform: rotateX(90deg) translateZ(var(--half)); }
+.shape-cube__face--bottom { transform: rotateX(-90deg) translateZ(var(--half)); }
+
+/* ── Armillary Sphere (3 intersecting rings) ── */
+.shape-sphere {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+.shape-sphere__ring {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--color-accent);
+  border-radius: 50%;
+  backface-visibility: visible;
+}
+
+.shape-sphere__ring:nth-child(1) { transform: rotateX(0deg); }
+.shape-sphere__ring:nth-child(2) { transform: rotateX(60deg) rotateY(30deg); }
+.shape-sphere__ring:nth-child(3) { transform: rotateX(-60deg) rotateY(-30deg); }
+
+/* ── Pyramid ── */
+.shape-pyramid {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+.shape-pyramid__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid var(--color-accent);
+  background: rgba(230, 57, 70, 0.02);
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+  transform-origin: bottom center;
+}
+
+.shape-pyramid__face--1 { transform: rotateX(30deg) translateZ(var(--half)); }
+.shape-pyramid__face--2 { transform: rotateY(90deg) rotateX(30deg) translateZ(var(--half)); }
+.shape-pyramid__face--3 { transform: rotateY(180deg) rotateX(30deg) translateZ(var(--half)); }
+.shape-pyramid__face--4 { transform: rotateY(270deg) rotateX(30deg) translateZ(var(--half)); }
+
+.shape-pyramid__base {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid var(--color-accent);
+  background: rgba(230, 57, 70, 0.02);
+  transform: rotateX(90deg) translateZ(0);
+}
+
+/* ── Cross (3 intersecting planes) ── */
+.shape-cross {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
+
+.shape-cross__plane {
+  position: absolute;
+  inset: 0;
+  border: 1.5px solid var(--color-accent);
+  background: rgba(230, 57, 70, 0.02);
+}
+
+.shape-cross__plane--1 { transform: rotateY(0deg); }
+.shape-cross__plane--2 { transform: rotateY(60deg); }
+.shape-cross__plane--3 { transform: rotateY(120deg); }
+
+/* ── Ring ── */
+.shape-ring {
+  border: 2px solid var(--color-accent);
+  border-radius: 50%;
+  will-change: transform;
+  transition: transform 0.05s linear;
+  box-shadow: 0 0 15px rgba(230, 57, 70, 0.1);
+}
+
+/* ── Code Bracket ── */
+.shape-code {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--color-accent);
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.05s linear;
+  text-shadow: 0 0 20px rgba(230, 57, 70, 0.3);
+  user-select: none;
+}
+
+/* ── Responsive: hide shapes on small screens ── */
+@media (max-width: 768px) {
+  .floating-shapes-container {
+    display: none;
+  }
+}
